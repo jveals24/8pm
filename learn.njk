@@ -1,0 +1,44 @@
+---
+layout: layouts/base.njk
+title: Learn
+permalink: /learn/
+---
+<section class="page-header">
+  <div class="container">
+    <h1>Learn</h1>
+    <p class="lead">A landing page for healing teaching, podcast-style Bible study, and featured blog content for discoverability.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container cards">
+    <article class="callout-card">
+      <p class="kicker">Healing</p>
+      <h2><a class="stretched-link" href="/learn/healing/">Healing teaching and daily confessions</a></h2>
+      <p>Position healing as part of biblical equipping, not separate from it. Add teaching videos, scriptures, and signup for daily confessions.</p>
+    </article>
+    <article class="callout-card">
+      <p class="kicker">Podcast section</p>
+      <h2><a class="stretched-link" href="/learn/podcast-study/">Podcast and Bible study</a></h2>
+      <p>Use this section for livestream replays, audio teaching, Bible study notes, and future podcast episodes.</p>
+    </article>
+    <article class="callout-card">
+      <p class="kicker">Blog</p>
+      <h2><a class="stretched-link" href="/blog/">Featured blog posts for SEO</a></h2>
+      <p>Keep your teaching searchable with short, clear articles tied to themes from services, healing, and discipleship.</p>
+    </article>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <h2>Featured posts</h2>
+    <ul class="blog-list">
+      {% for post in collections.featuredPosts %}
+      <li class="card">
+        <p class="blog-meta">{{ post.date | displayDate }}</p>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.excerpt }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

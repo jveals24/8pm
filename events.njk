@@ -1,0 +1,83 @@
+---
+layout: layouts/base.njk
+title: Events
+permalink: /events/
+---
+<section class="page-header">
+  <div class="container">
+    <h1>Events</h1>
+    <p class="lead">Livestreams now, in-person events as they come. These dates are already listed out through the end of 2026.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h2>Upcoming at a glance</h2>
+    <div class="event-stack">
+      {% for event in events.nextEight %}
+      <article class="event-card">
+        <div class="event-layout">
+          <time datetime="{{ event.date.toISOString() }}"><span>{{ event.month }}</span><span>{{ event.day }}</span></time>
+          <div>
+            <h3>{{ event.name }}</h3>
+            <p>{{ event.fullDate }}</p>
+            <p>{{ event.time }} · {{ event.type }}</p>
+            <p><a href="{{ event.watchUrl }}">Watch livestream</a></p>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <table class="schedule-table">
+      <caption>Healing Service schedule — every other Tuesday starting March 17, 2026</caption>
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Format</th>
+          <th scope="col">Watch</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in events.healing %}
+        <tr>
+          <td>{{ event.fullDate }}</td>
+          <td>{{ event.time }}</td>
+          <td>{{ event.type }}</td>
+          <td><a href="{{ event.watchUrl }}">YouTube</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <table class="schedule-table">
+      <caption>Bible Study schedule — every other Thursday starting March 12, 2026</caption>
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Format</th>
+          <th scope="col">Watch</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in events.study %}
+        <tr>
+          <td>{{ event.fullDate }}</td>
+          <td>{{ event.time }}</td>
+          <td>{{ event.type }}</td>
+          <td><a href="{{ event.watchUrl }}">YouTube</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>

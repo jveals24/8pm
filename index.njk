@@ -1,0 +1,115 @@
+---
+layout: layouts/base.njk
+title: Home
+description: Equipping people through teaching, healing, discipleship, and livestream ministry.
+---
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <span class="eyebrow">Current promotion</span>
+      <h1>Equipping and teaching first. Healing as part of the work.</h1>
+      <p class="lead">{{ site.name }} exists to prepare people for Heaven through biblical teaching, healing ministry, discipleship, and consistent online encouragement.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/learn/">Start learning</a>
+        <a class="button button-secondary" href="/events/">See events</a>
+      </div>
+    </div>
+    <div class="hero-media" role="img" aria-label="Photo space for ministry preaching, prayer, or healing moments."></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What you can do here</h2>
+    <p class="section-intro">Each feature block is fully clickable and designed for mobile first browsing.</p>
+    <div class="cards">
+      <article class="callout-card">
+        <p class="kicker">Learn</p>
+        <h3><a class="stretched-link" href="/learn/">Grow through teaching and podcast-style study</a></h3>
+        <p>Explore healing teaching, study content, and featured blog posts designed to support ongoing discipleship and search visibility.</p>
+      </article>
+      <article class="callout-card">
+        <p class="kicker">Events</p>
+        <h3><a class="stretched-link" href="/events/">Watch livestreams and upcoming gatherings</a></h3>
+        <p>Follow the every-other-week healing services and Bible study schedule, with room for future in-person events.</p>
+      </article>
+      <article class="callout-card">
+        <p class="kicker">New believers</p>
+        <h3><a class="stretched-link" href="/just-got-saved/">Start here if you just got saved</a></h3>
+        <p>Take clear next steps in prayer, Scripture, fellowship, and daily growth in Christ.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container info-grid">
+    <div>
+      <h2>Upcoming schedule</h2>
+      <p class="section-intro">Healing Service is every other Tuesday beginning March 17, 2026. Bible Study is every other Thursday beginning March 12, 2026.</p>
+      <div class="button-row">
+        <a class="button button-primary" href="{{ site.social.youtube }}">Watch on YouTube</a>
+        <a class="button button-secondary" href="/events/">View full calendar</a>
+      </div>
+    </div>
+    <div class="event-stack">
+      {% for event in events.nextEight %}
+      <article class="event-card">
+        <div class="event-layout">
+          <time datetime="{{ event.date.toISOString() }}"><span>{{ event.month }}</span><span>{{ event.day }}</span></time>
+          <div>
+            <h3>{{ event.name }}</h3>
+            <p>{{ event.fullDate }} at {{ event.time }}</p>
+            <p class="muted">{{ event.type }} · {{ event.location }}</p>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container info-grid">
+    <div>
+      <h2>Daily confessions by email</h2>
+      <p>On the healing side of the ministry, visitors can subscribe to receive daily confessions by email. This starter includes a Netlify form that you can wire to your email platform later.</p>
+      <ul class="inline-list">
+        <li>Name and email capture</li>
+        <li>Accessible labels and instructions</li>
+        <li>Easy future connection to Klaviyo or another email platform</li>
+      </ul>
+    </div>
+    <div class="form-panel">
+      <form name="daily-confessions" method="post" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="daily-confessions">
+        <p class="visually-hidden"><label>Do not fill this out if you are human <input name="bot-field"></label></p>
+        <div>
+          <label for="confessions-name">Name</label>
+          <input id="confessions-name" name="name" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="confessions-email">Email address</label>
+          <input id="confessions-email" name="email" type="email" autocomplete="email" required>
+          <small class="helper">Receive daily healing confessions and ministry updates.</small>
+        </div>
+        <input type="submit" value="Subscribe">
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2>Featured posts</h2>
+    <ul class="blog-list">
+      {% for post in collections.featuredPosts %}
+      <li class="card">
+        <p class="blog-meta">{{ post.date | displayDate }}</p>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.excerpt }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

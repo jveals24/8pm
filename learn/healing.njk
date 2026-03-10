@@ -1,0 +1,44 @@
+---
+layout: layouts/base.njk
+title: Healing
+permalink: /learn/healing/
+---
+<section class="page-header">
+  <div class="container">
+    <h1>Healing</h1>
+    <p class="lead">Healing ministry within the larger work of equipping believers through the Word of God.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container info-grid">
+    <div>
+      <h2>What to feature here</h2>
+      <ul class="inline-list">
+        <li>Healing service replays</li>
+        <li>Scripture-based teaching on healing</li>
+        <li>Testimony highlights</li>
+        <li>Daily confession signup</li>
+      </ul>
+      <div class="button-row">
+        <a class="button button-primary" href="{{ site.social.youtube }}">Watch healing content</a>
+        <a class="button button-secondary" href="/events/">See schedule</a>
+      </div>
+    </div>
+    <div class="form-panel">
+      <h2>Subscribe to daily confessions</h2>
+      <form name="daily-confessions-page" method="post" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="daily-confessions-page">
+        <p class="visually-hidden"><label>Do not fill this out if you are human <input name="bot-field"></label></p>
+        <div>
+          <label for="healing-name">Name</label>
+          <input id="healing-name" name="name" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="healing-email">Email address</label>
+          <input id="healing-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <input type="submit" value="Subscribe">
+      </form>
+    </div>
+  </div>
+</section>
